@@ -1,7 +1,8 @@
 const mongoose = require('mongoose');
 
 const taskSchema = new mongoose.Schema({
-  userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
+  boardId: { type: mongoose.Schema.Types.ObjectId, ref: 'Board' },
+  userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true }, // creator
   title: { type: String, required: true },
   description: { type: String, default: '' },
   status: { type: String, enum: ['todo', 'inprogress', 'done'], default: 'todo' },
